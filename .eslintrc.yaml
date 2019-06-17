@@ -1,0 +1,21 @@
+---
+extends:
+  - "@lectrum/eslint-config-core"
+
+rules:
+  no-console: 0
+  react/no-danger: 0
+  valid-jsdoc: 0
+  no-continue: 0
+  no-multi-spaces:
+    [
+      1,
+      {
+        exceptions:
+          {
+            "VariableDeclarator": true,
+            "Property": true,
+            "ImportDeclaration": true,
+          },
+      },
+    ]
