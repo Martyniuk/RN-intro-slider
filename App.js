@@ -1,39 +1,85 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import IntroSlider from 'react-native-app-intro-slider';
 
-const instructions = Platform.select({
-    ios:     'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
-});
+import { slides } from './mocks/introSlider';
 
-export default class App extends Component {
-    render() {
-        return (
-            <View style = { styles.container }>
-                <Text style = { styles.welcome }>Welcome to React Native!</Text>
-                <Text style = { styles.instructions }>To get started, edit App.js</Text>
-                <Text style = { styles.instructions }>{instructions}</Text>
-            </View>
-        );
+// Default State implementation
+// export default class App extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             show_App: false,
+//         };
+//     }
+
+//     onDone = () => {
+//         this.setState({ show_App: true });
+//     };
+
+//     onSkip = () => {
+//         this.setState({ show_App: true });
+//     };
+
+//     render() {
+//         const { show_App } = this.state;
+
+//         if (show_App) {
+//             return (
+//                 <View style = { styles.container }>
+//                     <Text>This is My Main App</Text>
+//                 </View>
+//             );
+//         }
+
+//         return (
+//             <IntroSlider
+//                 showSkipButton
+//                 slides = { slides }
+//                 onDone = { this.onDone }
+//                 onSkip = { this.onSkip }
+//             />
+//         );
+//     }
+// }
+
+// Hooks API
+export default function App() {
+    const [ showApp, setShowApp ] = useState(false);
+
+    function onDone() {
+        setShowApp(true);
     }
+
+    function onSkip() {
+        setShowApp(true);
+    }
+
+    return showApp ? (
+        <View style = { styles.container }>
+            <Text>This is My Main App</Text>
+        </View>
+    ) : (
+        <IntroSlider
+            showSkipButton
+            slides = { slides }
+            onDone = { onDone }
+            onSkip = { onSkip }
+        />
+    );
 }
 
 const styles = StyleSheet.create({
+    mainapp: {
+        flex:           1,
+        alignItems:     'center',
+        justifyContent: 'center',
+        padding:        20,
+    },
     container: {
         flex:            1,
         justifyContent:  'center',
         alignItems:      'center',
         backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize:  20,
-        textAlign: 'center',
-        margin:    10,
-    },
-    instructions: {
-        textAlign:    'center',
-        color:        '#333333',
-        marginBottom: 5,
     },
 });

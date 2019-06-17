@@ -7,6 +7,7 @@ rules:
   react/no-danger: 0
   valid-jsdoc: 0
   no-continue: 0
+  no-use-before-define: ["error", { "variables": false }]
   no-multi-spaces:
     [
       1,
@@ -19,3 +20,5 @@ rules:
           },
       },
     ]
+  react-hooks/rules-of-hooks: "error",
+  react-hooks/exhaustive-deps: "warn"

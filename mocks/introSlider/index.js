@@ -1,0 +1,1 @@
+export { slides } from './slidesMocks';
