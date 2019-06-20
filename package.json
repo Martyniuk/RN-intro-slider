@@ -10,7 +10,7 @@
     "ios-clean-build": "rm -rf ios/build/",
     "ios": "react-native run-ios --simulator='iPhone X'",
     "android": "react-native run-android",
-    "commitmsg": "commitlint -E GIT_PARAMS",
+    "commit": "npx git-cz",
     "test": "jest"
   },
   "dependencies": {
