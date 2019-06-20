@@ -10,6 +10,7 @@
     "ios-clean-build": "rm -rf ios/build/",
     "ios": "react-native run-ios --simulator='iPhone X'",
     "android": "react-native run-android",
+    "commitmsg": "commitlint -E GIT_PARAMS",
     "test": "jest"
   },
   "dependencies": {
@@ -20,6 +21,8 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/runtime": "^7.4.5",
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "@lectrum/eslint-config-core": "1.1.15",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
